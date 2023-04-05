@@ -7,8 +7,21 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="musicBean" 
-	class="com.newproj.spring.music.JazzMusic">
+	<bean id="musicBean" class="com.newproj.spring.music.RockMusic">
 	</bean>
+
+	<bean id="musicPlayer"
+		class="com.newproj.spring.music.MusicPlayer">
+		<constructor-arg ref="musicBean" />
+	</bean>
+
+	<bean id="animalBean" class="com.newproj.spring.animal.Dog">
+	</bean>
+	
+	<bean id="animalSounds" class="com.newproj.spring.animal.AnimalSounds">
+		<constructor-arg ref="animalBean"/>
+	</bean>
+
+
 
 </beans>
