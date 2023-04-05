@@ -1,25 +1,30 @@
 package com.newproj.spring.music;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicPlayer {
-	private IMusic music;
+
+	private List<IMusic> musicList = new ArrayList<IMusic>();
+
 	private String name;
 	private int volume;
 
 	// IoC ( Inversion of control)
-	public MusicPlayer(IMusic music) {
-		this.music = music;
+	public MusicPlayer(List<IMusic> musicList) {
+		this.musicList = musicList;
 	}
 
 	public MusicPlayer() {
 
 	}
 
-	public void setMusic(IMusic music) {
-		this.music = music;
-	}
-
 	public String getName() {
 		return name;
+	}
+
+	public void setMusicList(List<IMusic> musicList) {
+		this.musicList = musicList;
 	}
 
 	public void setName(String name) {
@@ -35,6 +40,10 @@ public class MusicPlayer {
 	}
 
 	public void playMusic() {
-		System.out.println("Playing: " + music.getSong());
+
+		for (IMusic music : musicList) {
+			System.out.println("Playing: " + music.getSong());
+		}
+
 	}
 }
