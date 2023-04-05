@@ -10,16 +10,18 @@
 	<bean id="musicBean" class="com.newproj.spring.music.RockMusic">
 	</bean>
 
+
 	<bean id="musicPlayer"
 		class="com.newproj.spring.music.MusicPlayer">
-		<constructor-arg ref="musicBean" />
+		<property name="music" ref="musicBean"></property>
 	</bean>
 
 	<bean id="animalBean" class="com.newproj.spring.animal.Dog">
 	</bean>
-	
-	<bean id="animalSounds" class="com.newproj.spring.animal.AnimalSounds">
-		<constructor-arg ref="animalBean"/>
+
+	<bean id="animalSounds"
+		class="com.newproj.spring.animal.AnimalSounds">
+		<constructor-arg ref="animalBean" />
 	</bean>
 
 
