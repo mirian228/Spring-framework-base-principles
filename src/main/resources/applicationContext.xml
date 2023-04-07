@@ -15,21 +15,22 @@
 		class="com.newproj.spring.music.RockMusic">
 	</bean>
 	<bean id="musicBeanClassical"
-		class="com.newproj.spring.music.ClassicalMusic">
+		class="com.newproj.spring.music.ClassicalMusic" init-method="doMyInit"
+		destroy-method="doMyDestroy" factory-method="getClassicalMusic" >
 	</bean>
 	<bean id="musicBeanJazz"
 		class="com.newproj.spring.music.JazzMusic">
 	</bean>
 
 
-	<bean id="musicPlayer"
+	<bean id="musicPlayer" scope="prototype"
 		class="com.newproj.spring.music.MusicPlayer">
 
 		<property name="MusicList">
 			<list>
-				<ref bean="musicBeanRock"/> 
-				<ref bean="musicBeanClassical"/> 
-				<ref bean="musicBeanJazz"/>
+				<ref bean="musicBeanRock" />
+				<ref bean="musicBeanClassical" />
+				<ref bean="musicBeanJazz" />
 			</list>
 		</property>
 		<property name="name" value="${name}"></property>
