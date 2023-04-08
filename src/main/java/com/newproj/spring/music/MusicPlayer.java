@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 public class MusicPlayer {
 
@@ -12,7 +13,10 @@ public class MusicPlayer {
 	private ClassicalMusic classicalMusic;
 	private RockMusic rockMusic;
 	private JazzMusic jazzMusic;
+		//Using this annotation we can get values from properties file and use them for parameters
+	@Value("${name}")
 	private String name;
+	@Value("${volume}")
 	private int volume;
 
 	// IoC ( Inversion of control)

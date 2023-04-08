@@ -9,14 +9,14 @@
 
 	<context:property-placeholder
 		location="musicPlayer.properties" />
-	<context:component-scan base-package="com.newproj.spring"></context:component-scan>
+	<context:component-scan
+		base-package="com.newproj.spring"></context:component-scan>
 
-	<!-- <bean id="musicBeanRock"
-		class="com.newproj.spring.music.RockMusic">
-	</bean> -->
+	<!-- <bean id="musicBeanRock" class="com.newproj.spring.music.RockMusic"> 
+		</bean> -->
 	<bean id="musicBeanClassical"
 		class="com.newproj.spring.music.ClassicalMusic" init-method="doMyInit"
-		destroy-method="doMyDestroy" factory-method="getClassicalMusic" >
+		destroy-method="doMyDestroy" factory-method="getClassicalMusic">
 	</bean>
 	<bean id="musicBeanJazz"
 		class="com.newproj.spring.music.JazzMusic">
@@ -33,18 +33,13 @@
 				<ref bean="musicBeanJazz" />
 			</list>
 		</property>
-		<property name="name" value="${name}"></property>
-		<property name="volume" value="${volume}"></property>
+		<!-- <property name="name" value="${name}"></property> <property name="volume" 
+			value="${volume}"></property> -->
 	</bean>
 
-<!-- 	<bean id="animalBean" class="com.newproj.spring.animal.Dog">
-	</bean> -->
-<!-- 
-	<bean id="animalSounds"
-		class="com.newproj.spring.animal.AnimalSounds">
-		<constructor-arg ref="animalBean" />
-	</bean>
- -->
+	<!-- <bean id="animalBean" class="com.newproj.spring.animal.Dog"> </bean> -->
+	<!-- <bean id="animalSounds" class="com.newproj.spring.animal.AnimalSounds"> 
+		<constructor-arg ref="animalBean" /> </bean> -->
 
 
 </beans>
