@@ -2,11 +2,16 @@ package com.newproj.spring.music;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MusicPlayer {
 
 	private List<IMusic> musicList = new ArrayList<IMusic>();
-
+	private ClassicalMusic classicalMusic;
+	private RockMusic rockMusic;
+	private JazzMusic jazzMusic;
 	private String name;
 	private int volume;
 
@@ -14,6 +19,19 @@ public class MusicPlayer {
 	public MusicPlayer(List<IMusic> musicList) {
 		this.musicList = musicList;
 	}
+
+	
+	
+	@Autowired
+	public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic, JazzMusic jazzMusic) {
+		super();
+		this.classicalMusic = classicalMusic;
+		this.rockMusic = rockMusic;
+		this.jazzMusic = jazzMusic;
+	}
+
+
+
 
 	public MusicPlayer() {
 
@@ -39,10 +57,33 @@ public class MusicPlayer {
 		this.volume = volume;
 	}
 
-	public void playMusic() {
+	public void playMusic(Music genre) {
+		Random random = new Random();
+		
+		int randomNumber = random.nextInt(3);
+		
+		if(genre == Music.ClassicalMusic) {
+			System.out.println(classicalMusic.getSong()[randomNumber]);
+		} if (genre == Music.RockMusic) {
+			System.out.println(rockMusic.getSong()[randomNumber]);
+		} if (genre == Music.JazzMusic) {
+			System.out.println(jazzMusic.getSong()[randomNumber]);
+		}
+		else {
 
+		}
 		for (IMusic music : musicList) {
 			System.out.println("Playing: " + music.getSong());
+		}
+
+	}
+	
+	public void playMusicList() {
+
+		for (IMusic music : musicList) {
+			for(int i=0; i<music.getArrayLength(); i++) {
+			System.out.println("Playing: " + music.getSong()[i]);
+			}
 		}
 
 	}

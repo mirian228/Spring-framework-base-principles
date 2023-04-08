@@ -1,6 +1,10 @@
 package com.newproj.spring.music;
 
+import java.util.Arrays;
+
 public class ClassicalMusic implements IMusic {
+	String[] classicalMusic = {"Bach's Brandenburg Concertos", "Tchaikovsky's Symphony", "Debussy's Clair de Lune" };
+	
 	
 	//Factory pattern uses private constructor
 	private ClassicalMusic() {
@@ -23,8 +27,18 @@ public class ClassicalMusic implements IMusic {
 	
 	
 	@Override
-	public String getSong() {
-		return "Hungarian Rhapsody";
+	public String[] getSong() {
+		return classicalMusic;
+	}
+
+	@Override
+	public int getArrayLength() {
+		return classicalMusic.length;
+	}
+
+	@Override
+	public String toString() {
+		return "ClassicalMusic [classicalMusic=" + Arrays.toString(classicalMusic) + "]";
 	}
 
 }

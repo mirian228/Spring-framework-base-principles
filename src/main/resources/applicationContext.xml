@@ -37,14 +37,14 @@
 		<property name="volume" value="${volume}"></property>
 	</bean>
 
-	<bean id="animalBean" class="com.newproj.spring.animal.Dog">
-	</bean>
-
+<!-- 	<bean id="animalBean" class="com.newproj.spring.animal.Dog">
+	</bean> -->
+<!-- 
 	<bean id="animalSounds"
 		class="com.newproj.spring.animal.AnimalSounds">
 		<constructor-arg ref="animalBean" />
 	</bean>
-
+ -->
 
 
 </beans>
