@@ -9,11 +9,11 @@
 
 	<context:property-placeholder
 		location="musicPlayer.properties" />
+	<context:component-scan base-package="com.newproj.spring"></context:component-scan>
 
-
-	<bean id="musicBeanRock"
+	<!-- <bean id="musicBeanRock"
 		class="com.newproj.spring.music.RockMusic">
-	</bean>
+	</bean> -->
 	<bean id="musicBeanClassical"
 		class="com.newproj.spring.music.ClassicalMusic" init-method="doMyInit"
 		destroy-method="doMyDestroy" factory-method="getClassicalMusic" >
